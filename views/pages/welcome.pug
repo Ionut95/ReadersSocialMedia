@@ -1,0 +1,9 @@
+extends layout 
+
+block content 
+    body(style='background: lightgreen')
+        div(style='padding-top: 30px; padding-bottom: 15px; margin-left: 4em')
+            h1(style='color: lightdark') Welcome, #{data[0].name}! 
+        div(style='padding-top: 10px; margin-left: 4em')
+            a(href='/logout') Log out!
+            

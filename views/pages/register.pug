@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    div(style='padding-top: 30px; padding-bottom: 15px; margin-left: 6em')
+        h1(style='color: blue') Create an account!
+    if flashMessage == 'Your account has been registered successfully!'
+        div.alert.alert-success.alert-dismissible.fade.show(role='alert' style='margin-left: 5em; width: 35em') #{flashMessage}
+            button.btn-close(type='button' data-bs-dismiss='alert' arial-label='Close')
+    else if flashMessage != 0
+        div.alert.alert-danger.alert-dismissible.fade.show(role='alert' style='margin-left: 5em; width: 35em') #{flashMessage}
+            button.btn-close(type='button' data-bs-dismiss='alert' arial-label='Close')
+    div.container
+        form(action='/users/register/user' method='POST')
+            div
+                label(for='name' style='padding-bottom: 4px') Name
+            div  
+                input(type='text' name='name' placeholder='Type your full name...' required)
+            div
+                label(for='email' style='padding-bottom: 4px') Email
+            div 
+                input(type='text' name='email' placeholder='Type your email address...' required)
+            div 
+                label(for='phone_number' style='padding-bottom: 4px') Phone number
+            div 
+                input(type='tel' name='phone_number' placeholder='Type your phone number...' maxlength='10' required)
+            div 
+                label(for='password' style='padding-bottom: 4px') Password 
+            div
+                input(type='password' name='password' placeholder='Type a strong password...')
+            div(style='padding-top: 5px')
+                button.btn.btn-primary(type='submit' value='input') Register
+        div(style='padding-top: 4px') Already have an account? 
+            a(href='/pages/login') Sign in!

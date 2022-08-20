@@ -1,0 +1,28 @@
+extends layout
+
+block content 
+    body(style='background: lightblue')
+        div(style='padding-top: 30px; padding-bottom: 15px; margin-left: 6em')
+            h1(style='color: lightdark') Login!
+        if flashMessage == 'Log in again!'
+            div.alert.alert-secondary.alert-dismissible.fade.show(role='alert' style='margin-left: 5em; width: 35em') #{flashMessage}
+                button.btn-close(type='button' data-bs-dismiss='alert' arial-label='Close')
+        else if flashMessage.length > 0
+            div.alert.alert-danger.alert-dismissible.fade.show(role='alert' style='margin-left: 5em; width: 35em') #{flashMessage}
+                button.btn-close(type='button' data-bs-dismiss='alert' arial-label='Close')
+        div.container
+            form(action='/users/login/user' method='POST')
+                div
+                    label(for='email' style='padding-bottom: 1px') Email
+                div 
+                    input(type='text' name='email' placeholder='email' required)
+                div
+                    label(for='password' style='padding-bottom: 4px') Password
+                div
+                    input(type='password' name='password' placeholder='password' required)
+                div(style='padding-top: 4px') 
+                    button.btn.btn-primary(type='submit') Sign in
+            div Not registered? 
+                a(href='/') Sign up!
+
+                
