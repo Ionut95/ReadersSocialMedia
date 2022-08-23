@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
   res.render('pages/register', { flashMessage });
 });
 
-router.get('/login', accessLoginpage, function(req, res) {
+router.get('/login', accessLoginPage, function(req, res) {
   const flashMessage = req.flash('flMess');
   //console.log(flashMessage);
   res.render('pages/login', { flashMessage });
