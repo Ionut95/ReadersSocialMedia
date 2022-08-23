@@ -102,7 +102,7 @@ module.exports.login = async (req, res) => {
                         process.env.SECRET_KEY
                     );
                     //console.log(token);
-                    return res.cookie('token', token, {maxAge: 1800000}).redirect('/pages/welcome');
+                    return res.cookie('token', token, {maxAge: 1800000}).redirect('/welcome');
                     //console.log(req.body.token)
                     /*res.status(200).json({
                         message: "User signed in",
@@ -110,7 +110,7 @@ module.exports.login = async (req, res) => {
                     });*/
                 } else if (result != true) {
                     req.flash('flMess', 'Enter correct password!');
-                    res.redirect('/pages/login');
+                    res.redirect('/login');
                     /*res.status(400).json({
                         error: "Enter correct password!"
                     });*/
@@ -140,7 +140,7 @@ module.exports.accessHomepage = (req, res, next) => {
         next();
     } catch (err) {
         req.flash('flMess', 'Log in again!')
-        res.redirect('/pages/login')
+        res.redirect('/login')
     }
 }
 
@@ -150,7 +150,7 @@ module.exports.accessLoginpage = (req, res, next) => {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
         req.user = decoded;
         //console.log(req.user)
-        res.redirect('/pages/welcome')
+        res.redirect('/welcome')
     } catch (err) {
         //req.flash('flMess', ' ')
         //res.redirect('/pages/login')

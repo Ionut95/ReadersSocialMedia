@@ -10,13 +10,13 @@ router.get('/', function(req, res, next) {
   res.render('pages/register', { flashMessage });
 });
 
-router.get('/pages/login', accessLoginpage, function(req, res) {
+router.get('/login', accessLoginpage, function(req, res) {
   const flashMessage = req.flash('flMess');
   //console.log(flashMessage);
   res.render('pages/login', { flashMessage });
 });
 
-router.get('/pages/welcome', accessHomepage, async function(req, res) {
+router.get('/welcome', accessHomepage, async function(req, res) {
   //console.log('pw%' + process.env.USER);
   let data = await getUser(process.env.USER);
   res.render('pages/welcome', { data });
@@ -25,7 +25,7 @@ router.get('/pages/welcome', accessHomepage, async function(req, res) {
 router.get('/logout', function(req, res) {
   res.clearCookie('token');
   req.flash('flMess', 'Log in again!')
-  res.redirect('pages/login');
+  res.redirect('/login');
 });
 
 module.exports = router;

@@ -3,10 +3,10 @@ var router = express.Router();
 //const { register } = require('../controllers/register');
 var { login, register } = require('../controllers/users')
 
-/* GET users listing. */
+/* GET users listing. 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
-});
+});*/
 
 router.post('/register/user', register);
 
