@@ -144,7 +144,7 @@ module.exports.accessHomepage = (req, res, next) => {
     }
 }
 
-module.exports.accessLoginpage = (req, res, next) => {
+module.exports.accessLoginPage = (req, res, next) => {
     const token = req.cookies['token'];
     try {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);

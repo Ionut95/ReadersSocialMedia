@@ -1,7 +1,7 @@
 require('dotenv').config()
 var express = require('express');
 var router = express.Router();
-const { accessHomepage, accessLoginpage } = require('../controllers/users');
+const { accessHomepage, accessLoginPage } = require('../controllers/users');
 const { getUser } = require('../configs/dbQueries');
 
 /* GET home page. */
